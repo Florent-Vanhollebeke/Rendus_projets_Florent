@@ -1,6 +1,6 @@
 import math, random
 
-# Premier Exercice: les impairs
+# Premier exercice: les impairs
 
 import math
 def nb_impair(param1, param2):
@@ -15,7 +15,7 @@ def nb_impair(param1, param2):
 nb_impair(42.75,52.23)
 
 
-# Deuxième exercice: Jeu du Plus ou Moins
+# Deuxième exercice: Jeu du plus ou moins
 
 import random, sys
 
@@ -107,7 +107,7 @@ sorted([0,1,2,3,4,5,6,87,89,4,36,64,22,26,27,32,29])
 print("--- %s seconds ---" % (time.time() - start_time))
 
 
-# exercice 5: Des Conversions
+# exercice 5: Des conversions
 
 def Conversion_Horaire(seconde):
 
@@ -196,30 +196,78 @@ print(dico_test)
 # Ne fonctionne pas.
 
 def manipulation_Fichier():
-
-    print("Veuillez entrer le nom du fichier : ")
-    nom_fichier = input()
-    path = nom_fichier.tell()
+    
+    # print("Veuillez entrer le nom du fichier : ")
+    file_name = input("Veuillez saisir un nom de fichier: ")
 
     print("Veuillez taper 1 si vous souhaitez le modifier, ou 2 pour simplement l'afficher")
-    choix = int(input())
+    choice = int(input())
 
-    while choix != 1 and choix != 2:
+    while choice != 1 and choice != 2:
         print("Nous vous rappelons qu'il faut taper 1 si vous souhaitez le modifier, ou 2 pour simplement l'afficher")
-        choix = int(input())
+        choice = int(input())
     
-    if choix == 1:
-        f = open(path,'w')
-        f.write(input=())
-        f.close()
+    if choice == 1:
+        file = open(file_name, "w")
+        while True:
+            saisie = (input("Veuillez saisir du texte"))
+            if saisie == "":
+                break
+            else:
+                file.write(saisie + '\n')
+        file.close()
 
     else:
-        f = open(path,'r')
-        texte = f.read()
-        print(texte)
-        f.close()
+        file = open(file_name,"r")
+        ligne = file.readlines()
+        for i in ligne:
+            print(i, end='')
+        file.close()
 
+# def tableMulti(n):
+#      # Fonction générant la table de multiplication par n (20 termes)
+#  # La table sera renvoyée sous forme d'une chaîne de caractères :
+#  i, ch = 0, ""
+#  while i < 20:
+#     i = i + 1
+#     ch = ch + str(i * n) + " "
+#  return ch
+# NomF = input("Nom du fichier à créer : ")
+# fichier = open(NomF, 'w')
+# # Génération des tables de 2 à 30 :
+# table = 2
+# while table < 31:
+#     fichier.write(tableMulti(table) + '\n')
+#     table = table
+
+# print(tableMulti(20))
    
+# Triplement des espaces dans un fichier texte.
+# Ce script montre également comment modifier le contenu d'un fichier
+# en le transférant d'abord tout entier dans une liste, puis en
+# ré-enregistrant celle-ci après modifications
+
+# def triplerEspaces(ch):
+#  "fonction qui triple les espaces entre mots dans la chaîne ch"
+#  i, nouv = 0, ""
+#  while i < len(ch):
+#  if ch[i] == " ":
+#  nouv = nouv + " "
+#  else:
+#  nouv = nouv + ch[i]
+#  i = i +1
+#  return nouv
+# NomF = input("Nom du fichier : ")
+# fichier = open(NomF, 'r+') # 'r+' = mode read/write
+# lignes = fichier.readlines() # lire toutes les lignes
+# n=0
+# while n < len(lignes):
+#  lignes[n] = triplerEspaces(lignes[n])
+#  n =n+1
+
+# fichier.seek(0) # retour au début du fichier
+# fichier.writelines(lignes) # réenregistrement
+# fichier.close()
 
 
 # Exercice 9 : Quelques notes
@@ -233,32 +281,28 @@ def notes_Eleves(nb_eleves):
     dico_total = {}
     nb_notes = 0
 
-    # try:
-    while nb_eleves > 0:
-        nom_eleve = input()
-        liste_nom.append(nom_eleve)
-        nb_eleves -= 1
-    # except ValueError:
-    #     print(liste_nom)
-    #     print("Entrez des noms seulement.")
+    try:
+        while nb_eleves > 0:
+            nom_eleve = input()
+            liste_nom.append(nom_eleve)
+            nb_eleves -= 1
+    except ValueError:
+        print(liste_nom)
+        print("Entrez des noms seulement.")
 
-    # try:
-    print("Veuillez entrer une note entre 0 et 20 compris: ")
-    note = round(float(input()),2)
-    while note >= 0 and note <= 20:
-        liste_note.append(note)
+    try:
+        print("Veuillez entrer une note entre 0 et 20 compris: ")
         note = round(float(input()),2)
-        nb_notes += 1
-        note_max = max(liste_note)
-        note_min = min(liste_note)
-        note_moy = statistics.mean(liste_note)
-    # except ValueError:
-    #     print(liste_note,nb_notes)
-    #     print("N'oubliez pas que seuls les nombres entre 0 et 20 sont acceptés.")
-
-    
-    dico_total = dict(zip(liste_nom,liste_note))
-    print(dico_total)
+        while note >= 0 and note <= 20:
+            liste_note.append(note)
+            note = round(float(input()),2)
+            nb_notes += 1
+            note_max = max(liste_note)
+            note_min = min(liste_note)
+            note_moy = statistics.mean(liste_note)
+    except ValueError:
+        print(liste_note,nb_notes)
+        print("N'oubliez pas que seuls les nombres entre 0 et 20 sont acceptés.")
    
     # A partir d'ici le code ne fonctionne plus. 
 
@@ -266,7 +310,7 @@ def notes_Eleves(nb_eleves):
     #     dico_total["nom"] = liste_nom[i]
     # print(dico_total)
        
-    # print(liste_nom, liste_note,nb_notes,note_max, note_min, note_moy)
+    print(liste_nom, liste_note,nb_notes,note_max, note_min, note_moy)
 
 
 print(notes_Eleves(5))
