@@ -193,11 +193,9 @@ print(dico_test)
 
 
 # Exercice 8 : Manipulation de fichiers textes
-# Ne fonctionne pas.
 
 def manipulation_Fichier():
     
-    # print("Veuillez entrer le nom du fichier : ")
     file_name = input("Veuillez saisir un nom de fichier: ")
 
     print("Veuillez taper 1 si vous souhaitez le modifier, ou 2 pour simplement l'afficher")
@@ -223,6 +221,8 @@ def manipulation_Fichier():
         for i in ligne:
             print(i, end='')
         file.close()
+
+manipulation_Fichier()
 
 # def tableMulti(n):
 #      # Fonction générant la table de multiplication par n (20 termes)
@@ -271,49 +271,75 @@ def manipulation_Fichier():
 
 
 # Exercice 9 : Quelques notes
-# Ne fonctionne pas entièrement
-import numpy as np, statistics
 
-def notes_Eleves(nb_eleves):
+def notes_Eleves():
+# Pour le "N", il ne faut pas rappeler le dictionnaire car sinon il se vide.
 
-    liste_note = []
-    liste_nom = []
+    import numpy as np, statistics
     dico_total = {}
-    nb_notes = 0
+    nom = input("Voulez-vous entrer un nouvel élève (Y/N)?")
 
+    if nom == "Y":
+        nom = input("entrer le nouveau nom de l'élève")
+        dico_total[nom] = []
+        note = input("Saisissez une note")
+        while note != "":
+            if (float(note)>20) or (float(note)<0): 
+                note = input("Saisissez une note")
+            else:
+                dico_total[nom].append(float(note))
+                note = input("Saisissez une note")
+    elif nom == "N": 
+        nom = input("dis moi le nom")
+        dico_total[nom] 
+    else:
+        print("Il faut entrer Y ou N")
+
+    note_max = max(dico_total[nom])
+    note_min = min(dico_total[nom])
+    note_moy = statistics.mean(dico_total[nom])
+    print(dico_total, note_max,note_min,note_moy)
+
+
+notes_Eleves()
+
+# Exercice 10: Une première base de données
+# souci pour contrôler la saisie du sexe par exemple et l'except.
+
+dico_personne = {}
+age = 0
+taille = 0
+sexe = ""
+
+nom = input("Voulez-vous entrer une nouvelle personne (Y/N)?")
+
+if nom == "Y":
+    nom = input("entrer le nouveau nom :")
+    dico_personne[nom] = []
     try:
-        while nb_eleves > 0:
-            nom_eleve = input()
-            liste_nom.append(nom_eleve)
-            nb_eleves -= 1
-    except ValueError:
-        print(liste_nom)
-        print("Entrez des noms seulement.")
+        while ((age ==0) and (taille==0) and (sexe=="") and (sexe != 'M' and sexe != 'F')):
+            age = int(input("Saisissez un âge"))
+            sexe = input("Saisissez 'F' pour femme et 'M' pour homme")
+            taille = float(input("Saisissez une taille en mètres"))
+            tuple_personne = (age, sexe, taille)
+            dico_personne[nom].append(tuple_personne)
+            # dico_personne[nom].append(taille)
+            # dico_personne[nom].append(sexe)
+    except:
+        ValueError ("Il faut remplir correctement la saisie.")
+elif nom == "N": 
+        nom = input("Précisez le nom")
+        dico_personne[nom] 
+else:
+    print("Il faut entrer Y ou N")
 
-    try:
-        print("Veuillez entrer une note entre 0 et 20 compris: ")
-        note = round(float(input()),2)
-        while note >= 0 and note <= 20:
-            liste_note.append(note)
-            note = round(float(input()),2)
-            nb_notes += 1
-            note_max = max(liste_note)
-            note_min = min(liste_note)
-            note_moy = statistics.mean(liste_note)
-    except ValueError:
-        print(liste_note,nb_notes)
-        print("N'oubliez pas que seuls les nombres entre 0 et 20 sont acceptés.")
-   
-    # A partir d'ici le code ne fonctionne plus. 
+print(dico_personne[nom])
 
-    # for i in range (len(liste_nom)):
-    #     dico_total["nom"] = liste_nom[i]
-    # print(dico_total)
-       
-    print(liste_nom, liste_note,nb_notes,note_max, note_min, note_moy)
+for i in dico_personne[nom]:
+    dico_personne[nom][i]
+    for j in dico_personne[nom]:
+        dico_personne[nom][j]
+        
 
-
-print(notes_Eleves(5))
-
-
-
+# for clef,valeur in dico_personne.items():
+#     print(f"Pour {clef[0]} : {valeur[1][0]} est l'âge,{valeur[1][1]} est le sexe ")
