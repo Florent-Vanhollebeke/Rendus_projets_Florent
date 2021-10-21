@@ -224,23 +224,25 @@ def manipulation_Fichier():
 
 manipulation_Fichier()
 
-# def tableMulti(n):
-#      # Fonction générant la table de multiplication par n (20 termes)
-#  # La table sera renvoyée sous forme d'une chaîne de caractères :
-#  i, ch = 0, ""
-#  while i < 20:
-#     i = i + 1
-#     ch = ch + str(i * n) + " "
-#  return ch
-# NomF = input("Nom du fichier à créer : ")
-# fichier = open(NomF, 'w')
-# # Génération des tables de 2 à 30 :
-# table = 2
-# while table < 31:
-#     fichier.write(tableMulti(table) + '\n')
-#     table = table
+# Table de 2 à 30 en ouverture de fichier:
+# non fonctionnel
+def tableMulti(n):
+    
+    liste_ajoute = []
+    file_name = input("Veuillez saisir un nom de fichier: ")
+    file = open(file_name, "w")
+    for i in range(1,10):
+        table = (i , " x ", n, " = ",i*n)
+        saisie = liste_ajoute.append(table)
+    file.write(saisie + '\n')
+    file.close()
+    file = open(file_name,"r")
+    ligne = file.readlines()
+    for k in ligne:
+        print(k, end="")    
+    file.close()
 
-# print(tableMulti(20))
+print(tableMulti(20))
    
 # Triplement des espaces dans un fichier texte.
 # Ce script montre également comment modifier le contenu d'un fichier
@@ -306,40 +308,35 @@ notes_Eleves()
 # Exercice 10: Une première base de données
 # souci pour contrôler la saisie du sexe par exemple et l'except.
 
-dico_personne = {}
-age = 0
-taille = 0
-sexe = ""
+def premiereBDD():
 
-nom = input("Voulez-vous entrer une nouvelle personne (Y/N)?")
+    dico_personne = {}
+    age = 0
+    taille = 0
+    sexe = ""
 
-if nom == "Y":
-    nom = input("entrer le nouveau nom :")
-    dico_personne[nom] = []
-    try:
-        while ((age ==0) and (taille==0) and (sexe=="") and (sexe != 'M' and sexe != 'F')):
-            age = int(input("Saisissez un âge"))
-            sexe = input("Saisissez 'F' pour femme et 'M' pour homme")
-            taille = float(input("Saisissez une taille en mètres"))
-            tuple_personne = (age, sexe, taille)
-            dico_personne[nom].append(tuple_personne)
-            # dico_personne[nom].append(taille)
-            # dico_personne[nom].append(sexe)
-    except:
-        ValueError ("Il faut remplir correctement la saisie.")
-elif nom == "N": 
+    nom = input("Voulez-vous entrer une nouvelle personne (Y/N)?")
+
+    if nom == "Y":
+        nom = input("entrer le nouveau nom :")
+        dico_personne[nom] = []
+        try:
+            while ((age ==0) and (taille==0) and (sexe=="") and (sexe != 'M' and sexe != 'F')):
+                age = int(input("Saisissez un âge"))
+                sexe = input("Saisissez 'F' pour femme et 'M' pour homme")
+                taille = float(input("Saisissez une taille en mètres"))
+                tuple_personne = (age, sexe, taille)
+                dico_personne[nom].append(tuple_personne)
+        except:
+            ValueError ("Il faut remplir correctement la saisie.")
+        for clef,valeur in dico_personne.items():
+            print(f"Nom: {clef} - âge: {valeur[0][0]} ans - sexe: {valeur[0][1]} - taille: {valeur[0][2]} m")
+    elif nom == "N": 
         nom = input("Précisez le nom")
-        dico_personne[nom] 
-else:
-    print("Il faut entrer Y ou N")
+        print(nom, ":" , dico_personne[nom])
+    else:
+        print("Il faut entrer Y ou N")
+        premiereBDD()
 
-print(dico_personne[nom])
+print(premiereBDD())
 
-for i in dico_personne[nom]:
-    dico_personne[nom][i]
-    for j in dico_personne[nom]:
-        dico_personne[nom][j]
-        
-
-# for clef,valeur in dico_personne.items():
-#     print(f"Pour {clef[0]} : {valeur[1][0]} est l'âge,{valeur[1][1]} est le sexe ")
