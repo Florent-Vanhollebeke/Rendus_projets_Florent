@@ -23,7 +23,7 @@ def JeuDuPlusOuMoins():
 
     nb_recherche = random.randint(1,100)
     print(nb_recherche) 
-# A activer pour trouver le nombre avant la boucle et tester le félicitations.
+# A activer pour trouver le nombre avant la boucle et tester les félicitations.
 
     choix_user = float(input())
     compteur = 1
@@ -225,7 +225,7 @@ def manipulation_Fichier():
 manipulation_Fichier()
 
 # Table de 2 à 30 en ouverture de fichier:
-# non fonctionnel
+# Code non fonctionnel
 def tableMulti(n):
     
     liste_ajoute = []
@@ -244,10 +244,7 @@ def tableMulti(n):
 
 print(tableMulti(20))
    
-# Triplement des espaces dans un fichier texte.
-# Ce script montre également comment modifier le contenu d'un fichier
-# en le transférant d'abord tout entier dans une liste, puis en
-# ré-enregistrant celle-ci après modifications
+# Triplement des espaces dans un fichier texte: Code trouvé. A revoir.
 
 # def triplerEspaces(ch):
 #  "fonction qui triple les espaces entre mots dans la chaîne ch"
@@ -275,7 +272,7 @@ print(tableMulti(20))
 # Exercice 9 : Quelques notes
 
 def notes_Eleves():
-# Pour le "N", il ne faut pas rappeler le dictionnaire car sinon il se vide.
+# ATTENTION  : Pour le "N", il ne faut pas rappeler le dictionnaire car sinon il se vide.
 
     import numpy as np, statistics
     dico_total = {}
@@ -307,6 +304,7 @@ notes_Eleves()
 
 # Exercice 10: Une première base de données
 # souci pour contrôler la saisie du sexe par exemple et l'except.
+# Les deux premières fonctions sont dans la même. Difficulté de mise en oeuvre de la fonction. L'ensemble marche hors fonction.
 
 def premiereBDD():
 
