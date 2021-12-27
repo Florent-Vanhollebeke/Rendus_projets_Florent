@@ -1,0 +1,74 @@
+body
+{
+    background-image: url("images/Ecran-noir-windows-10-1-1170x550.jpg");
+
+}
+
+.photo
+{
+    color: goldenrod;
+}
+
+.langages
+{
+    color: blue;
+}
+
+h1
+{
+    font-family: Comic Sans MS, sans-serif ;
+    font-style: oblique;
+    text-decoration: underline;
+    text-align: center;
+}
+
+h2
+{
+    font-family: Arial,sans-serif;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+*
+{
+    color: white;
+}
+
+.blabla
+{
+    border: 3px white inset;
+    border-radius: 10px;
+    box-shadow: 6px 6px 6px red;
+    background-color: white;
+    color: black;
+    opacity: 0.5;
+    font-family: Verdana, sans-serif;
+}
+
+a 
+{
+   text-decoration: none;
+   color: red;
+   font-style: italic;
+}
+
+a:hover 
+{
+   text-decoration: underline;
+   color: cyan;
+}
+
+a:active 
+{
+    background-color: goldenrod;
+}
+
+.fin
+{
+    text-align: center;
+}
+
+.email
+{
+    color: orange;
+}
