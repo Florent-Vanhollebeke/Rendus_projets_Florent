@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf_8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+
+    <body>
+        <h1 class="introduction"> {{ message }}</h1>
+        <ul>
+        <li><a href="{{ url_for('suite') }}"> Cliquer ici pour aller page N°2.</a></li>
+        <li><a href="{{ url_for('enregistrement') }}"> Cliquer ici pour vous enregistrer.</a></li>
+        </ul>
+    </body>
+
+</html>

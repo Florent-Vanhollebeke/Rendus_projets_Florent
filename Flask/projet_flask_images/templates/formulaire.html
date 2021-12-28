@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf_8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+
+    <body>
+        <div>
+            <p> Veuillez saisir votre prénom, nom, sexe (par 'M'ou 'F'), et votre pseudo.</p>
+            {% block content %}
+            <form action="{{ url_for('text_box') }}" method="POST">
+            <input type="text" name="first_name">
+            <input type="text" name="last_name">
+            <input type="text" name="sex">
+            <input type="text" name="pseudo">
+            <button type="submit">OK</button>
+            </form>
+            {% endblock %}
+        </div>
+    </body>
+
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+
+<html lang="fr">
+
+    <head>
+        <meta charset="utf_8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+    {% block content %}
+    <body>
+        <p> {% if text_sex == 'M' %} 
+            Bonjour Mr {% block text_first_name %}{% endblock %} {% block text_last_name %}{% endblock %}, votre nom d'utilisateur est {% block text_pseudo %}{% endblock %}
+            {% elif %}
+            Bonjour Mme {% block text_first_name %}{% endblock %} {% block text_last_name %}{% endblock %}, votre nom d'utilisatrice est {% block text_pseudo %}{% endblock %}
+            {% endif %}
+        </p>
+        <a href="{{ url_for('hello') }}"> Cliquer ici pour revenir à l'accueil.</a>
+    </body>
+    {% endblock %}
+
+</html>
