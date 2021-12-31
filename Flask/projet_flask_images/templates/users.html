@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="fr">
+
+    <head>
+        <meta charset="utf_8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    </head>
+
+    <body>
+        <h1> {{ res }} </h1>
+        <a href="{{ url_for('hello') }}"> Cliquer ici pour retourner à l'accueil.</a>
+    </body>
+
+</html>

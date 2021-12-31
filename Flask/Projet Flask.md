@@ -24,6 +24,15 @@ Enfin, à partir de la question 5, y a de la nouveauté.
 Modifier /test-formulaire pour que désormais à chaque fois qu'un utilisateur rentre ses informations, celles-ci soient ajoutées dans la base de donnée. Pour cela il faudra utiliser un client sql python pour se connecter à la base de donnée.
 Il faudra par ailleurs gérer le cas d’un pseudo déjà existant...
 
+CREATE TABLE users(
+    idUsers INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+    prenom VARCHAR(20) NOT NULL,
+    nom VARCHAR(25) NOT NULL,
+    sexe VARCHAR(9),
+    pseudo VARCHAR(20) NOT NULL UNIQUE,
+    PRIMARY KEY(idUsers)
+    );
+
 6. Faire une page /utilisateurs-inscrits qui permet de lister tous les noms d'utilisateurs présents dans la base de donnée.
 
 ### Pour aller plus loin
