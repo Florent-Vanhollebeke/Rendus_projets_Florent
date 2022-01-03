@@ -26,7 +26,7 @@ app.config["UPLOAD_FOLDER"] = "data/"
 #Connexion à la base MariaDB
 #mdbusr = os.getenv('mariadb_usr')
 #mdbpwd = os.getenv('mariadb_pwd') 
-conn = mariadb.connect(host='localhost', user='root', password="Ciboure2017.")
+conn = mariadb.connect(host='localhost', user='root', password="password")
 curseur = conn.cursor()
 curseur.execute("CREATE DATABASE IF NOT EXISTS projet_flask")
 curseur.execute("USE users")
