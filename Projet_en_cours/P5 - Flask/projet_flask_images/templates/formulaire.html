@@ -8,17 +8,23 @@
 
     <body>
         <div>
-            <p> Veuillez saisir votre prénom, nom, sexe (par 'M'ou 'F'), et votre pseudo.</p>
-            {% block content %}
+            <p> Veuillez saisir votre prénom, nom, sexe, et votre pseudo.</p>
             <form action="{{ url_for('text_box') }}" method="POST">
             <input type="text" name="first_name">
             <input type="text" name="last_name">
-            <input type="text" name="sex">
+            <div>
+                <label for="sex-select">Précisez votre sexe (par 'M'ou 'F')</label>
+                <select name="sex" id="sex-select">
+                    <option value="">--Sélectionnez une option--</option>
+                    <option value="Masculin">M</option>
+                    <option value="Feminin">F</option> 
+                </select>
+            </div>
             <input type="text" name="pseudo">
             <button type="submit">OK</button>
             </form>
-            {% endblock %}
         </div>
+
     </body>
 
 </html>
