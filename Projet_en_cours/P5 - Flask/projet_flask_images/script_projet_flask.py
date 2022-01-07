@@ -12,25 +12,23 @@ import numpy as np
 from scipy import ndimage
 
 
-
-#from dotenv import load_dotenv
-#load_dotenv()
-#user = os.environ.get('user')
-#password = os.environ.get('password')
-
-
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "data/"
 
 
+'''from dotenv import load_dotenv
+load_dotenv()
+user = os.environ.get('USER')
+password = os.environ.get('PASSWORD')'''
 
 #Connexion à la base MariaDB
-#mdbusr = os.getenv('mariadb_usr')
-#mdbpwd = os.getenv('mariadb_pwd') 
-conn = mariadb.connect(host='localhost', user='root', password="password")
+mdbusr = os.getenv('mariadb_usr')
+mdbpwd = os.getenv('mariadb_pwd') 
+
+conn = mariadb.connect(host='localhost', user=mdbusr,password=mdbpwd)
 curseur = conn.cursor()
 curseur.execute("CREATE DATABASE IF NOT EXISTS projet_flask")
-curseur.execute("USE users")
+curseur.execute("USE projet_flask")
 curseur.execute("CREATE TABLE IF NOT EXISTS users (prenom VARCHAR(20), nom VARCHAR(20), sexe VARCHAR(10), pseudo VARCHAR(20) UNIQUE)")
 
 @app.route('/')
