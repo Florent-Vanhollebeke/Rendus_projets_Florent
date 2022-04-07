@@ -10,16 +10,15 @@ import os, time, uuid
 def first_prediction_azure(path):
 
 
-    ENDPOINT = "https://projetp8custom-prediction.cognitiveservices.azure.com/"
-    training_key = "88a6c3b9bdd14faabd2e7f98f3c65a49"
-    prediction_key = "4ed5495ce8af4755a3487b2ba8dbef77"
-    prediction_resource_id = "/subscriptions/9b9c4a7a-4f40-4fc2-ab99-0bbe0c4064bd/resourceGroups/Florent-IA/providers/Microsoft.CognitiveServices/accounts/projetP8custom"
+    ENDPOINT = ""
+    training_key = ""
+    prediction_key = ""
+    prediction_resource_id = ""
 
 
-    base_image_location = "/Users/flore/OneDrive/Documents/Simplon/Rendus_projets_Florent/Projet_en_cours/Projet P8 - Triof/triof"
-    # base_image_location = "base_image_location = "/mnt/c/Documents and Settings/flore/OneDrive/Documents/Simplon/Rendus_projets_Florent/Projet_en_cours/Projet P8 - Triof/triof/"
+    base_image_location = ""
     publish_iteration_name = "model1"
-    project_id="66b07b7d-03ff-4c7e-9892-9d854e949ad0"
+    project_id=""
 
 
     # Test du point de terminaison
