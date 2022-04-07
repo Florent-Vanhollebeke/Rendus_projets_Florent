@@ -39,6 +39,7 @@ def insert():
 @app.route('/waste/pick-type')
 def pick_type():
     close_waste_slot()
+    
 
     return render_template('type.html')
 
